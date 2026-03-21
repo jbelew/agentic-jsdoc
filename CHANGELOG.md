@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.7.1...agentic-jsdoc-v1.7.2) (2026-03-21)
+
+
+### Bug Fixes
+
+* Clarify and add guidelines for proactively linking associated files like tests and stories using `[@see](https://github.com/see)` in JSDoc. ([e13fd91](https://github.com/jbelew/agentic-jsdoc/commit/e13fd91172c02c911ca22cc2123432f758436b75))
+
 ## [1.7.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.7.0...agentic-jsdoc-v1.7.1) (2026-03-21)
 
 
