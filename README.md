@@ -31,13 +31,15 @@ Add this to your ESLint configuration (`.eslintrc.js`):
 module.exports = {
   plugins: ["jsdoc"],
   rules: {
+    // Force JSDoc on functions, classes, and crucially: TypeScript Interfaces (for React Props)
     "jsdoc/require-jsdoc": ["warn", { 
-        require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true }
+        require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true },
+        contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration"]
     }],
     "jsdoc/require-param-description": "error",
     "jsdoc/require-returns-description": "error",
-    "jsdoc/require-example": "warn", // Recommended for context
-    "jsdoc/check-tag-names": ["error", { definedTags: ["template"] }]
+    "jsdoc/require-example": "warn",
+    "jsdoc/check-tag-names": ["error", { definedTags: ["template", "category"] }]
   }
 };
 ```
