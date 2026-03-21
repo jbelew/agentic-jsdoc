@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/jbelew/agentic-jsdoc/compare/v1.0.1...v1.1.0) (2026-03-21)
+
+
+### Features
+
+* Extend JSDoc enforcement to TypeScript interfaces and types, and allow the 'category' tag. ([97d7344](https://github.com/jbelew/agentic-jsdoc/commit/97d7344f94db682485451872dca32afc7ad3ddc0))
+
 ## [1.0.1](https://github.com/jbelew/agentic-jsdoc/compare/v1.0.0...v1.0.1) (2026-03-21)
 
 
