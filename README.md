@@ -6,11 +6,17 @@ When an LLM agent creates or reads code without an enforced standard, it misses 
 
 ## Installation
 
-Add this skill to your local AI Agent environment by cloning it into your skills directory:
+Install this skill automatically into your project using the `skills` CLI:
+
+```bash
+npx skills add jbelew/agentic-jsdoc
+```
+
+Alternatively, you can add it to your local environment manually by cloning it into your skills directory:
 
 ```bash
 mkdir -p .agents/skills
-git clone https://github.com/your-username/agentic-jsdoc.git .agents/skills/agentic-jsdoc
+git clone https://github.com/jbelew/agentic-jsdoc.git .agents/skills/agentic-jsdoc
 ```
 
 Your agent will automatically read `SKILL.md` when reviewing or writing documentation.
