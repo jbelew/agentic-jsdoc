@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.6.1...agentic-jsdoc-v1.7.0) (2026-03-21)
+
+
+### Features
+
+* Enhance README to highlight SKILL.md for better discoverability ([a226141](https://github.com/jbelew/agentic-jsdoc/commit/a226141fb1d29e09626532dc21edab49a7dcc4d3))
+
 ## [1.6.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.6.0...agentic-jsdoc-v1.6.1) (2026-03-21)
 
 
