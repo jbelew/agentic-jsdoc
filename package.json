@@ -1,6 +1,6 @@
 {
   "name": "agentic-jsdoc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Writes and reviews JSDoc optimized for LLM parsing, maximizing agentic RAG retrieval and architecture comprehension.",
   "author": "John Belew",
   "license": "AGPL-3.0-only",
