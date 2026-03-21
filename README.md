@@ -7,8 +7,8 @@ When an LLM agent creates or reads code without an enforced standard, it misses 
 ## The Standard ([SKILL.md](./SKILL.md))
 
 The core of this project is [SKILL.md](./SKILL.md). It serves as the **source of truth** for your AI agent to understand:
-- **Priority Tags**: Strict usage of `@param`, `@returns`, `@throws`, `@category`, and `@example` for RAG clarity.
-- **Hierarchical Structure**: A deterministic block order (Summary → Description → Tags → Example) to ensure consistent LLM parsing.
+- **Priority Tags**: Strict usage of `@param`, `@returns`, `@throws`, `@category`, `@example`, and the now-standardized `{@link path/to/file Label}` for RAG clarity.
+- **Hierarchical Structure**: A deterministic block order (Summary → `@remarks` → Tags → Example) to ensure consistent LLM parsing and TypeDoc compatibility.
 - **Architecture Primitives**: Specialized JSDoc patterns for React Components, Custom Hooks, Zustand Stores, and Zod Schemas.
 - **Review Criteria**: A built-in checklist for agents to audit and refactor existing documentation.
 
