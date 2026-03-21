@@ -80,20 +80,23 @@ This skill ships with an `examples/` directory that provides exact 1-to-1 exampl
 
 The `tests/` directory contains a fixture for smoke-testing the skill after changes.
 
-### Running the test
+### Test 1: `@see` conventions and structure (review mode)
 
-1. Load the skill: `Load agentic-jsdoc`
-2. Ask: `Review the JSDoc in tests/test_fixture.tsx`
-3. Compare the agent's output against `tests/test_fixture.expects.md`
+1. Ask: `Review the JSDoc in tests/test_fixture.tsx`
+2. Compare against `tests/test_fixture.expects.md`
 
-### What the fixture covers
+Covers `@see` Markdown-style vs `{@link}` for file/symbol references, `@typedef` redundancy, missing `@param`/`@returns` types, and undocumented interfaces. Expects 7 violations flagged, 3 correct usages left alone.
 
-`test_fixture.tsx` contains intentional violations across three code patterns (component, hook, Zod schema):
+### Test 2: Tag-specific rules (review mode)
 
-- **`@see` convention**: File references (stories, tests) that incorrectly use `{@link}` instead of Markdown-style links
-- **`@see` false positives**: Code symbol references that correctly use `{@link}` and should *not* be flagged
-- **Tag completeness**: Missing `@param` types/descriptions, empty `@returns`, missing `@example` and `@category`
-- **`@typedef` redundancy**: A `@typedef` that duplicates an existing TypeScript type in a `.tsx` file
-- **Interface documentation**: A props interface missing its JSDoc summary and inline property descriptions
+1. Ask: `Review the JSDoc in tests/test_fixture_tags.tsx`
+2. Compare against `tests/test_fixture_tags.expects.md`
 
-The expects file lists 7 violations that should be flagged and 3 correct usages that should be left alone.
+Covers `@deprecated` without migration path, missing `@throws`, `{any}`/`{*}` types, void hooks without `@returns {void}`, and `@example` without output comments. Expects 5 violations flagged.
+
+### Test 3: Writing JSDoc from scratch (write mode)
+
+1. Ask: `Write JSDoc for every export in tests/test_fixture_write.tsx`
+2. Compare against the checklist in `tests/test_fixture_write.expects.md`
+
+Covers a bare file with no JSDoc across a component, context hook, Zod schema, utility function, and side-effect hook. Verifies the agent produces correct hierarchical structure, proper `@see` link styles, and complete tag coverage.
