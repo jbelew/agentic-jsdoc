@@ -75,3 +75,25 @@ npx typedoc --entryPointStrategy expand --entryPoints src/ --exclude "**/*.test.
 ## Examples Directory
 
 This skill ships with an `examples/` directory that provides exact 1-to-1 examples of how architecture elements should be fully documented for maximum agent comprehension. The agent can use these files as grounding truth.
+
+## Testing the Skill
+
+The `tests/` directory contains a fixture for smoke-testing the skill after changes.
+
+### Running the test
+
+1. Load the skill: `Load agentic-jsdoc`
+2. Ask: `Review the JSDoc in tests/test_fixture.tsx`
+3. Compare the agent's output against `tests/test_fixture.expects.md`
+
+### What the fixture covers
+
+`test_fixture.tsx` contains intentional violations across three code patterns (component, hook, Zod schema):
+
+- **`@see` convention**: File references (stories, tests) that incorrectly use `{@link}` instead of Markdown-style links
+- **`@see` false positives**: Code symbol references that correctly use `{@link}` and should *not* be flagged
+- **Tag completeness**: Missing `@param` types/descriptions, empty `@returns`, missing `@example` and `@category`
+- **`@typedef` redundancy**: A `@typedef` that duplicates an existing TypeScript type in a `.tsx` file
+- **Interface documentation**: A props interface missing its JSDoc summary and inline property descriptions
+
+The expects file lists 7 violations that should be flagged and 3 correct usages that should be left alone.
