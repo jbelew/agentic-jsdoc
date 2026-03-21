@@ -2,23 +2,10 @@
 
 ## [1.6.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.1...agentic-jsdoc-v1.6.0) (2026-03-21)
 
+* This version contains no new changes from 1.5.1, but was released to stabilize the versioning pipeline and ensure consistent tagging.
 
-### Features
-
-* Add agent skill manifest and configure release automation for version management. ([b959bd3](https://github.com/jbelew/agentic-jsdoc/commit/b959bd3d805428ce54c47362c2191d4429725c4c))
-* Extend JSDoc enforcement to TypeScript interfaces and types, and allow the 'category' tag. ([97d7344](https://github.com/jbelew/agentic-jsdoc/commit/97d7344f94db682485451872dca32afc7ad3ddc0))
-* Introduce detailed React JSDoc patterns, new good and bad examples, and the `[@category](https://github.com/category)` tag for LLM-optimized documentation. ([680009d](https://github.com/jbelew/agentic-jsdoc/commit/680009d80167ea0b015d41365c76af2a733fbdaa))
-* setup semantic release workflow, package.json, and formatting standards ([477ace6](https://github.com/jbelew/agentic-jsdoc/commit/477ace64c9193f9374e5bcb6aa3f2dab1b72219e))
-
-
-### Bug Fixes
-
-* bump project version to 1.2.0 in release manifest. ([d79cfa4](https://github.com/jbelew/agentic-jsdoc/commit/d79cfa4a47cfecf65486e5fc64921686eca19c36))
-* force JavaScript actions to use Node 24 in the release workflow. ([d398658](https://github.com/jbelew/agentic-jsdoc/commit/d398658bdc64a9e2c20913f7925aedc6e3fb8c3e))
-* Remove explicit `release-type: node` configuration from the release-please workflow. ([574c915](https://github.com/jbelew/agentic-jsdoc/commit/574c915efd9c730882259204491c1fe38a15350b))
-* Update ESLint configuration example in README to use ES module syntax and correct a markdown link in the changelog. ([dd8c6e5](https://github.com/jbelew/agentic-jsdoc/commit/dd8c6e575b9c933274d8ec3462ff1bc796d40b4b))
-
-## [1.5.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.0...agentic-jsdoc-v1.5.1) (2026-03-21)
+## [1.5.1]
+(https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.0...agentic-jsdoc-v1.5.1) (2026-03-21)
 
 
 ### Bug Fixes
