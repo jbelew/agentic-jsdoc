@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.7.0...agentic-jsdoc-v1.7.1) (2026-03-21)
+
+
+### Bug Fixes
+
+* Standardize JSDoc `[@see](https://github.com/see)` tags to use `{[@link](https://github.com/link) ...}` syntax for improved linking and documentation generation. ([3b7c7e7](https://github.com/jbelew/agentic-jsdoc/commit/3b7c7e755ff86683a4f466134470d7f5fa2a1916))
+* Update typedoc command in README for improved API documentation generation with expanded entry points and exclusions. ([6cf8f25](https://github.com/jbelew/agentic-jsdoc/commit/6cf8f253a278d21bb4cf324f311aec8122756e28))
+
 ## [1.7.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.6.1...agentic-jsdoc-v1.7.0) (2026-03-21)
 
 
