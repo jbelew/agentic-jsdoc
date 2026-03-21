@@ -1,6 +1,7 @@
 ---
 name: agentic-jsdoc
-description: "Writes and reviews JSDoc optimized for LLM parsing. Use when writing new code, adding documentation, or reviewing existing JSDoc for LLM-friendly structure, type clarity, and semantic richness."
+description: "Writes and reviews JSDoc optimized for LLM parsing in React/TypeScript projects. Use when writing new code, adding documentation, or reviewing existing JSDoc for LLM-friendly structure, type clarity, and semantic richness."
+license: AGPL-3.0-only
 ---
 
 # JSDoc Standards for LLM Parsing
@@ -39,7 +40,8 @@ Every JSDoc block must follow this order:
 7. @throws       — Documented errors for better try/catch generation
 8. @deprecated   — If deprecated, explicitly state *what to use instead*
 9. @see          — Links to related functions, components, schemas, or files
-10. @example     — Working usage example (most important for correct LLM usage)
+10. @category    — TypeDoc grouping (e.g., Hooks, Components, Utilities)
+11. @example     — Working usage example (most important for correct LLM usage)
 ```
 
 ### 3. Tag Rules & Context
@@ -53,28 +55,13 @@ Every JSDoc block must follow this order:
 
 ### 4. Special Contexts: Architecture Primitives
 
-**React Components**
-For React elements, LLMs heavily rely on the **Props Interface** rather than the component function itself. 
-1. Document every property in the `interface` using JSDoc.
-2. In the component JSDoc, do not re-document destructured props. Just refer to the Props interface.
-3. **Tests & Stories**: Always use `@see MyComponent.test.tsx` or `@see MyComponent.stories.tsx` in the component JSDoc. This pulls in test coverage and visual variants automatically.
-4. Include an `@example` of how to render the component.
-5. **Suspense & Errors**: If the component throws errors defensively or suspends, note this explicitly in the description (e.g., "Requires an `<ErrorBoundary>` parent element").
-
-**React Router (Route Components)**
-When a component is a top-level route/page, document the expected URL parameters natively fetched via `useParams()` or `useSearchParams()`. Since they won't appear in the `Props` interface, list them out in the Description or using `@param` with `[URL]` notation (e.g., `@param {string} [URL/projectId] - The active project ID mapped by the router`). 
-
-**Validation Schemas (Zod/Yup)**
-Whenever documenting a TypeScript interface strictly paired with a Zod schema or Yup runtime validation, you MUST include `@see MySchema` on both the interface and the schema object to keep LLMs aligned between compile-time and runtime validation.
-
-**Data Fetching (React Query / SWR)**
-When creating abstract fetching hooks (e.g. `useUserQuery`), strictly define the cache invalidation keys or unique identifiers managed by the hook in a dedicated bullet point inside the description so LLMs know exactly what tokens invalidate the data natively.
-
-**Zustand Stores**
-When documenting a generated `useStore` hook from Zustand, ensure the `@returns` explicitly reflects the hook nature (e.g., `@returns {import("zustand").UseBoundStore...}`) and must strictly `@see` the State interface above it.
-
-**React Context Hooks**
-When exporting a custom hook like `useMyContext`, strictly `@see MyContext` so RAG engines can map the usage to the provider definition.
+For React components, hooks, stores, routing, and validation schemas, read `reference/react.md` for detailed JSDoc patterns covering:
+- React Components & Props interfaces
+- React Router (route/page components)
+- Validation Schemas (Zod/Yup)
+- Data Fetching (React Query / SWR)
+- Zustand Stores
+- React Context Hooks
 
 ### 5. Documentation Engine Compatibility (TypeDoc)
 
@@ -96,4 +83,4 @@ Check every JSDoc block against these criteria:
 9. **RAG Linkage?** — Are tests, schemas, and contexts explicitly linked using `@see`?
 10. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
 
-Flag violations and provide corrected JSDoc inline.
+Flag violations and provide corrected JSDoc inline. Reference files in `examples/` for canonical patterns when suggesting fixes.

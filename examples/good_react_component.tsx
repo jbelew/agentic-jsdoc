@@ -23,6 +23,7 @@ export interface ButtonProps {
  * @returns {JSX.Element} The rendered button UI.
  * @see PrimaryButton.stories.tsx
  * @see PrimaryButton.test.tsx
+ * @category Components
  * 
  * @example
  * <PrimaryButton label="Submit" onClick={(id) => save(id)} isDisabled={false} />

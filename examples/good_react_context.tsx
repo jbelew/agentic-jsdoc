@@ -29,6 +29,7 @@ export const ThemeContext = createContext<ThemeContextValue>({
  * 
  * @returns {ThemeContextValue} The current theme state and mutation actions.
  * @see ThemeContext
+ * @category Hooks
  * 
  * @example
  * const { theme, setTheme } = useTheme();

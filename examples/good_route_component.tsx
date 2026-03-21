@@ -13,6 +13,7 @@ import { useParams } from "react-router-dom";
  * @param {string} [URL/userId] - The UUID of the user to fetch, extracted via `useParams()`.
  * @returns {JSX.Element} The rendered user profile page.
  * @see useUserProfileFetcher
+ * @category Components
  * 
  * @example
  * // Accessed via /users/:userId => /users/123e4567

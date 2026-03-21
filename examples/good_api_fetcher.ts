@@ -15,6 +15,7 @@ import { useSessionStore } from "./store";
  * @returns {Promise<T>} Resolves immediately with parsed type `T`.
  * @throws {Error} Throws if the network fails or if the API returns 401/500 errors.
  * @see useSessionStore
+ * @category Utilities
  * 
  * @example
  * const res = await fetchSecure<UserData>("/api/user");

@@ -25,6 +25,7 @@ interface SessionState {
  * 
  * @returns {import("zustand").UseBoundStore<import("zustand").StoreApi<SessionState>>} The initialized Zustand hook.
  * @see SessionState
+ * @category Hooks
  * 
  * @example
  * const { token, setToken } = useSessionStore();
