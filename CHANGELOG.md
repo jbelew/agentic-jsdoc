@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/jbelew/agentic-jsdoc/compare/v1.2.0...v1.2.1) (2026-03-21)
+
+
+### Bug Fixes
+
+* bump project version to 1.2.0 in release manifest. ([d79cfa4](https://github.com/jbelew/agentic-jsdoc/commit/d79cfa4a47cfecf65486e5fc64921686eca19c36))
+
 ## [1.2.0](https://github.com/jbelew/agentic-jsdoc/compare/v1.1.0...v1.2.0) (2026-03-21)
 
 
