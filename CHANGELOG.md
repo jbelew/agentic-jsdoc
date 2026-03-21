@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.9.0...agentic-jsdoc-v1.10.0) (2026-03-21)
+
+
+### Features
+
+* Enhance JSDoc guidelines with `[@default](https://github.com/default)` tag, refined `[@throws](https://github.com/throws)` and `[@see](https://github.com/see)` usage for Zod-inferred types, and updated test instructions. ([608cd92](https://github.com/jbelew/agentic-jsdoc/commit/608cd920e3b03edb1c2b4dd44d55f90695e0bf54))
+
 ## [1.9.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.8.0...agentic-jsdoc-v1.9.0) (2026-03-21)
 
 
