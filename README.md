@@ -57,7 +57,10 @@ export default defineConfig([
       "jsdoc/require-param-description": "error",
       "jsdoc/require-returns-description": "error",
       "jsdoc/require-example": "warn",
-      "jsdoc/check-tag-names": "error",
+      "jsdoc/require-description": "error",
+      "jsdoc/check-tag-names": ["error", {
+        "definedTags": ["hook", "component", "remarks"]
+      }],
     },
   },
 ]);
