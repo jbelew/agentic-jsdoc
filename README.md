@@ -86,7 +86,7 @@ The `tests/` directory contains a fixture for smoke-testing the skill after chan
 2. Ask: `Review the JSDoc in tests/test_fixture.tsx`
 3. Compare against `tests/test_fixture.expects.md`
 
-Covers `@see` Markdown-style vs `{@link}` for file/symbol references, `@typedef` redundancy, missing `@param`/`@returns` types, and undocumented interfaces. Expects 7 violations flagged, 3 correct usages left alone.
+Covers `@see` consistency, proper use of `{@link}` vs Markdown links, `@typedef` redundancy, missing `@param`/`@returns` types, and the new `@remarks`, `@hook`, and `@component` requirements. Expects 8 violations flagged and 3 correct usages left alone.
 
 ### Test 2: Tag-specific rules (review mode)
 
@@ -94,7 +94,7 @@ Covers `@see` Markdown-style vs `{@link}` for file/symbol references, `@typedef`
 2. Ask: `Review the JSDoc in tests/test_fixture_tags.tsx`
 3. Compare against `tests/test_fixture_tags.expects.md`
 
-Covers `@deprecated` without migration path, missing `@throws`, `{any}`/`{*}` types, void hooks without `@returns {void}`, and `@example` without output comments. Expects 5 violations flagged.
+Covers `@deprecated` without migration path, missing `@throws`, `{any}`/`{*}` types, void hooks without `@returns {void}`, and missing `@remarks` or `@hook` tags. Expects 5 violations flagged.
 
 ### Test 3: Writing JSDoc from scratch (write mode)
 

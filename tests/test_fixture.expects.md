@@ -2,7 +2,7 @@
 
 Load `agentic-jsdoc`, then ask: **"Review the JSDoc in tests/test_fixture.tsx"**
 
-## Should Flag (7 violations)
+## Should Flag (8 violations)
 
 1. **`StatusBadgeProps`** — Missing interface-level JSDoc summary and inline property descriptions
 2. **`StatusBadge` `@param`** — Missing type and description (`@param props` alone is insufficient)
