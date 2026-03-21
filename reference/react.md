@@ -10,7 +10,7 @@ LLMs heavily rely on the **Props Interface** rather than the component function 
 
 1. Document every property in the `interface` using JSDoc.
 2. In the component JSDoc, do not re-document destructured props. Just refer to the Props interface.
-3. **Tests & Stories**: Always use `@see {@link MyComponent.test.tsx}` or `@see {@link MyComponent.stories.tsx}` in the component JSDoc. This pulls in test coverage and visual variants automatically.
+3. **Tests & Stories**: Proactively search for associated test and story files (e.g. `MyComponent.test.tsx`, `MyComponent.stories.tsx`). If they exist, ALWAYS use `@see {@link ...}` in the component JSDoc. This pulls in test coverage and visual variants automatically.
 4. Include an `@example` of how to render the component.
 5. **Suspense & Errors**: If the component throws errors defensively or suspends, note this explicitly in the description (e.g., "Requires an `<ErrorBoundary>` parent element").
 

@@ -19,6 +19,13 @@ Enforce JSDoc conventions that maximize LLM comprehension for code generation, d
 
 Apply these rules to every exported function, class, method, React component, custom hook, and type:
 
+### 0. Research Context
+
+Before writing JSDoc, proactively search for associated files that should be linked via `@see {@link ...}`:
+- Search for `.test.ts/tsx` files (e.g. `MyComponent.test.tsx`).
+- Search for `.stories.tsx` files (e.g. `MyComponent.stories.tsx`).
+- Search for associated Zod/Yup schemas or Context providers.
+
 ### 1. Use TypeScript-Compatible JSDoc Syntax
 
 - Use `@type`, `@typedef`, and `@param {type}` strictly.
