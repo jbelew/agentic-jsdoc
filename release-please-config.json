@@ -1,6 +1,7 @@
 {
   "packages": {
     ".": {
+      "package-name": "agentic-jsdoc",
       "release-type": "node",
       "extra-files": [
         {
