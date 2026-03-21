@@ -4,6 +4,16 @@ An Agent Skill designed to maximize Large Language Model (LLM) comprehension for
 
 When an LLM agent creates or reads code without an enforced standard, it misses critical architecture links and struggles with React edge cases. This skill explicitly guides the agent to document React context hooks, Zustand stores, Suspense boundaries, and explicit routing.
 
+## The Standard ([SKILL.md](./SKILL.md))
+
+The core of this project is [SKILL.md](./SKILL.md). It serves as the **source of truth** for your AI agent to understand:
+- **Priority Tags**: Strict usage of `@param`, `@returns`, `@throws`, `@category`, and `@example` for RAG clarity.
+- **Hierarchical Structure**: A deterministic block order (Summary → Description → Tags → Example) to ensure consistent LLM parsing.
+- **Architecture Primitives**: Specialized JSDoc patterns for React Components, Custom Hooks, Zustand Stores, and Zod Schemas.
+- **Review Criteria**: A built-in checklist for agents to audit and refactor existing documentation.
+
+Your agent will automatically ingest `SKILL.md` when installed as a skill, providing persistent grounding for all documentation tasks.
+
 ## Installation
 
 Install this skill automatically into your project using the `skills` CLI:
@@ -18,8 +28,6 @@ Alternatively, you can add it to your local environment manually by cloning it i
 mkdir -p .agents/skills
 git clone https://github.com/jbelew/agentic-jsdoc.git .agents/skills/agentic-jsdoc
 ```
-
-Your agent will automatically read `SKILL.md` when reviewing or writing documentation.
 
 ## Linting Enforcement
 
