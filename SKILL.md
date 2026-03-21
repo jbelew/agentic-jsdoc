@@ -46,9 +46,10 @@ Every JSDoc block must follow this order:
 6. @returns      — Explicit return shape (e.g., for Promises and Custom Hooks)
 7. @throws       — Documented errors for better try/catch generation
 8. @deprecated   — If deprecated, explicitly state *what to use instead*
-9. @see          — Links to related functions, components, schemas, or files
-10. @category    — TypeDoc grouping (e.g., Hooks, Components, Utilities)
-11. @example     — Working usage example (most important for correct LLM usage)
+9. @default      — Default values for contexts, config objects, or optional params
+10. @see          — Links to related functions, components, schemas, or files
+11. @category    — TypeDoc grouping (e.g., Hooks, Components, Utilities)
+12. @example     — Working usage example (most important for correct LLM usage)
 ```
 
 ### 3. Tag Rules & Context
@@ -57,6 +58,7 @@ Every JSDoc block must follow this order:
 - **`@returns`**: Be explicit about the return shape. For Promises, specify the resolved type: `{Promise<User[]>}`. For custom hooks returning `void`, explicitly state `@returns {void} Side-effects only.`
 - **`@throws`**: Document every thrown error. This directly improves LLM-generated error handling.
 - **`@deprecated`**: Never just use `@deprecated`. Always follow with "Use `OtherFunction` instead."
+- **`@default`**: Use on React contexts, config objects, and optional parameters to document the initial or fallback value (e.g., `@default { theme: "system" }`).
 - **`@see`**: Aggressively use `@see` to link dependencies. For **code symbols** (functions, types, contexts), use `{@link ...}` so TypeDoc renders clickable hyperlinks (e.g., `@see {@link MyContext}`). For **file references** (stories, tests, schemas), use Markdown-style links (e.g., `@see [MyComponent Stories](./MyComponent.stories.tsx)`). A Context hook should `@see {@link MyContext}`, and a component should `@see [MyComponent Tests](./MyComponent.test.tsx)`.
 - **`@example`**: Required for any non-trivial function. Must include expected output as comments (e.g., `// returns "value"` or `// mounts Component`).
 
@@ -87,8 +89,9 @@ Check every JSDoc block against these criteria:
 6. **`@returns` is explicit?** — Especially for Promises, custom hooks, and complex objects. Side-effect hooks must say `{void}`.
 7. **`@throws` documented?** — Any function that can throw must document it. Ensure `<Suspense>` paths are caught.
 8. **Deprecations are actionable?** — Check if `@deprecated` explains the migration path.
-9. **RAG Linkage?** — Are code symbols linked with `@see {@link ...}`? Are file references (stories, tests, schemas) linked with Markdown-style `@see [Label](./path)`?
-10. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
+9. **Defaults documented?** — Do React contexts, config objects, and optional params use `@default` to document initial values?
+10. **RAG Linkage?** — Are code symbols linked with `@see {@link ...}`? Are file references (stories, tests, schemas) linked with Markdown-style `@see [Label](./path)`?
+11. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
 
 Flag violations and provide corrected JSDoc inline. Reference files in `examples/` for canonical patterns when suggesting fixes.
 

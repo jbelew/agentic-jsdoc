@@ -82,21 +82,24 @@ The `tests/` directory contains a fixture for smoke-testing the skill after chan
 
 ### Test 1: `@see` conventions and structure (review mode)
 
-1. Ask: `Review the JSDoc in tests/test_fixture.tsx`
-2. Compare against `tests/test_fixture.expects.md`
+1. Load the skill: `Load agentic-jsdoc`
+2. Ask: `Review the JSDoc in tests/test_fixture.tsx`
+3. Compare against `tests/test_fixture.expects.md`
 
 Covers `@see` Markdown-style vs `{@link}` for file/symbol references, `@typedef` redundancy, missing `@param`/`@returns` types, and undocumented interfaces. Expects 7 violations flagged, 3 correct usages left alone.
 
 ### Test 2: Tag-specific rules (review mode)
 
-1. Ask: `Review the JSDoc in tests/test_fixture_tags.tsx`
-2. Compare against `tests/test_fixture_tags.expects.md`
+1. Load the skill: `Load agentic-jsdoc`
+2. Ask: `Review the JSDoc in tests/test_fixture_tags.tsx`
+3. Compare against `tests/test_fixture_tags.expects.md`
 
 Covers `@deprecated` without migration path, missing `@throws`, `{any}`/`{*}` types, void hooks without `@returns {void}`, and `@example` without output comments. Expects 5 violations flagged.
 
 ### Test 3: Writing JSDoc from scratch (write mode)
 
-1. Ask: `Write JSDoc for every export in tests/test_fixture_write.tsx`
-2. Compare against the checklist in `tests/test_fixture_write.expects.md`
+1. Load the skill: `Load agentic-jsdoc`
+2. Ask: `Write JSDoc for every export in tests/test_fixture_write.tsx`
+3. Compare against the checklist in `tests/test_fixture_write.expects.md`
 
 Covers a bare file with no JSDoc across a component, context hook, Zod schema, utility function, and side-effect hook. Verifies the agent produces correct hierarchical structure, proper `@see` link styles, and complete tag coverage.

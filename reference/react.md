@@ -24,7 +24,7 @@ When a component is a top-level route/page, document the expected URL parameters
 
 > See `examples/good_zod_schema.ts` for a complete example.
 
-Whenever documenting a TypeScript interface strictly paired with a Zod schema or Yup runtime validation, you MUST include `@see {@link MySchema}` on both the interface and the schema object to keep LLMs aligned between compile-time and runtime validation.
+Whenever documenting a TypeScript type paired with a Zod schema or Yup runtime validation (whether a standalone `interface` or an inferred type via `z.infer`), you MUST include `@see {@link MySchema}` on the type and `@see {@link MyType}` on the schema to keep LLMs aligned between compile-time and runtime validation.
 
 ## Data Fetching (React Query / SWR)
 
