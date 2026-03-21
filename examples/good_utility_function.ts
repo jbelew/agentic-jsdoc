@@ -14,6 +14,7 @@ interface ParsedRow {
 /**
  * Parses a single CSV row into structured column data.
  *
+ * @remarks
  * Handles quoted fields containing commas and trims whitespace from each value.
  * Does not validate column count against a header row — callers should
  * verify alignment separately.

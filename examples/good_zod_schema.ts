@@ -4,10 +4,14 @@
 import { z } from "zod";
 
 /**
- * Runtime validation schema for user payload creation.
+ * Zod schema for validating user profile data.
  * 
- * Fails safely if the email is malformed or if the user is underage.
- * @see {@link CreateUserPayload}
+ * @remarks
+ * Strictly enforces email format and minimum name length. Used primarily
+ * for form validation.
+ * 
+ * @see {@link UserProfile}
+ * @category Utilities
  */
 export const CreateUserSchema = z.object({
   /** The validated user email format. */

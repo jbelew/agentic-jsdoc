@@ -11,8 +11,8 @@ Enforce JSDoc conventions that maximize LLM comprehension for code generation, d
 ## Core Principles
 
 1. **TypeScript-flavor JSDoc** — even in plain JS files
-2. **Hierarchical structure** — Summary → Description → Tags → Example
-3. **Semantic richness** — every tag carries a description, not just a type
+2. **Hierarchical structure** — Summary → @remarks (Description) → Tags → Example
+3. **Semantic richness** — every tag carries a description, not just a type.
 4. **Markdown formatting** — use markdown backticks for `variables`, `types`, and `functionNames` within descriptions to improve entity extraction.
 
 ## When Writing Code
@@ -39,7 +39,7 @@ Every JSDoc block must follow this order:
 
 ```
 1. Summary       — One-sentence purpose (the "What")
-2. Description   — Context, rationale, constraints (the "Why"), separated by a blank line
+2. @remarks      — Detailed context, rationale, and constraints (the "Why")
 3. @typedef      — Inline type definitions, if needed
 4. @template     — Generic type declarations
 5. @param        — All parameters: {type} name - Description
@@ -48,8 +48,9 @@ Every JSDoc block must follow this order:
 8. @deprecated   — If deprecated, explicitly state *what to use instead*
 9. @default      — Default values for contexts, config objects, or optional params
 10. @see          — Links to related functions, components, schemas, or files
-11. @category    — TypeDoc grouping (e.g., Hooks, Components, Utilities)
-12. @example     — Working usage example (most important for correct LLM usage)
+11. @hook / @component — Architecture primitive markers
+12. @category    — TypeDoc grouping (e.g., Hooks, Components, Utilities)
+13. @example     — Working usage example (most important for correct LLM usage)
 ```
 
 ### 3. Tag Rules & Context
@@ -59,7 +60,7 @@ Every JSDoc block must follow this order:
 - **`@throws`**: Document every thrown error. This directly improves LLM-generated error handling.
 - **`@deprecated`**: Never just use `@deprecated`. Always follow with "Use `OtherFunction` instead."
 - **`@default`**: Use on React contexts, config objects, and optional parameters to document the initial or fallback value (e.g., `@default { theme: "system" }`).
-- **`@see`**: Aggressively use `@see` to link dependencies. For **code symbols** (functions, types, contexts), use `{@link ...}` so TypeDoc renders clickable hyperlinks (e.g., `@see {@link MyContext}`). For **file references** (stories, tests, schemas), use Markdown-style links (e.g., `@see [MyComponent Stories](./MyComponent.stories.tsx)`). A Context hook should `@see {@link MyContext}`, and a component should `@see [MyComponent Tests](./MyComponent.test.tsx)`.
+- **`@see`**: Aggressively use `@see` to link dependencies. Always use the JSDoc `{@link ...}` syntax for both **code symbols** (e.g., `@see {@link MyContext}`) and **file references** (e.g., `@see {@link ./MyComponent.test.tsx Unit Tests}`). Avoid raw Markdown links `[Label](./path)` as they are less robust for TypeDoc and IDE integration.
 - **`@example`**: Required for any non-trivial function. Must include expected output as comments (e.g., `// returns "value"` or `// mounts Component`).
 
 ### 4. Special Contexts: Architecture Primitives
@@ -90,7 +91,7 @@ Check every JSDoc block against these criteria:
 7. **`@throws` documented?** — Any function that can throw must document it. Ensure `<Suspense>` paths are caught.
 8. **Deprecations are actionable?** — Check if `@deprecated` explains the migration path.
 9. **Defaults documented?** — Do React contexts, config objects, and optional params use `@default` to document initial values?
-10. **RAG Linkage?** — Are code symbols linked with `@see {@link ...}`? Are file references (stories, tests, schemas) linked with Markdown-style `@see [Label](./path)`?
+10. **RAG Linkage?** — Are all references linked using `{@link path/or/symbol Label}`? Markdown-style `@see [Label](./path)` is a violation.
 11. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
 
 Flag violations and provide corrected JSDoc inline. Reference files in `examples/` for canonical patterns when suggesting fixes.

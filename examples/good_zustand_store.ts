@@ -20,11 +20,13 @@ interface SessionState {
 /**
  * Zustand store for managing the active user session.
  * 
+ * @remarks
  * Provides access to the global `token` and actions related to updating
  * the secure session lifecycle.
  * 
  * @returns {import("zustand").UseBoundStore<import("zustand").StoreApi<SessionState>>} The initialized Zustand hook.
  * @see {@link SessionState}
+ * @hook
  * @category Hooks
  * 
  * @example

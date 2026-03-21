@@ -10,10 +10,12 @@ Load `agentic-jsdoc`, then ask: **"Write JSDoc for every export in this file."**
 
 ### AlertBanner component
 - [ ] Summary line describing what it renders
+- [ ] `@remarks` block for detailed rationale
 - [ ] `@param {AlertBannerProps} props - ...` with description
 - [ ] `@returns {JSX.Element}`
 - [ ] `@see {@link AlertBannerProps}` — code symbol, uses `{@link}`
-- [ ] `@see` Markdown-style links for stories/tests if the agent searched and found them (or omitted if not found)
+- [ ] `@see {@link ./AlertBanner.test.tsx Tests}` — file reference, uses `{@link}`
+- [ ] `@component` tag present
 - [ ] `@category Components`
 - [ ] `@example` with output comment
 
@@ -27,8 +29,10 @@ Load `agentic-jsdoc`, then ask: **"Write JSDoc for every export in this file."**
 
 ### useNotifications hook
 - [ ] Summary line
+- [ ] `@remarks` block for usage constraints
 - [ ] `@returns {NotificationContextValue}` with description
 - [ ] `@see {@link NotificationContext}` — code symbol, uses `{@link}`
+- [ ] `@hook` tag present
 - [ ] `@category Hooks`
 - [ ] `@example` with output comment
 
@@ -42,7 +46,8 @@ Load `agentic-jsdoc`, then ask: **"Write JSDoc for every export in this file."**
 - [ ] `@see {@link alertPayloadSchema}` — code symbol, uses `{@link}`
 
 ### truncateMessage utility
-- [ ] Summary line and description
+- [ ] Summary line
+- [ ] `@remarks` block for implementation details
 - [ ] `@param {string} message - ...` with description
 - [ ] `@param {number} maxLength - ...` with description
 - [ ] `@returns {string}` with description
@@ -51,7 +56,9 @@ Load `agentic-jsdoc`, then ask: **"Write JSDoc for every export in this file."**
 
 ### useDocumentTitle hook
 - [ ] Summary line
+- [ ] `@remarks` block for side-effect explanation
 - [ ] `@param {string} title - ...` with description
 - [ ] `@returns {void} Side-effects only.`
+- [ ] `@hook` tag present
 - [ ] `@category Hooks`
 - [ ] `@example` with output comment

@@ -6,6 +6,7 @@ import { useSessionStore } from "./store";
 /**
  * Fetches JSON payload securely from the internal API.
  * 
+ * @remarks
  * Automatically attaches the Authorization header using the `useSessionStore` JWT token
  * and handles any native HTTP throw events safely. 
  * 

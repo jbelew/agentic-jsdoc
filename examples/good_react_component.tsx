@@ -16,13 +16,15 @@ export interface ButtonProps {
 /**
  * A highly reusable Primary Action Button.
  * 
+ * @remarks
  * It wraps the generic HTML button with application-specific styling and 
  * strict interaction handlers. 
  * 
  * @param {ButtonProps} props - The component properties.
  * @returns {JSX.Element} The rendered button UI.
- * @see [PrimaryButton Stories](./PrimaryButton.stories.tsx)
- * @see [PrimaryButton Tests](./PrimaryButton.test.tsx)
+ * @see {@link ./PrimaryButton.stories.tsx Stories}
+ * @see {@link ./PrimaryButton.test.tsx Tests}
+ * @component
  * @category Components
  * 
  * @example

@@ -18,8 +18,8 @@ interface StatusBadgeProps {
  * @param props
  * @returns
  * @see {@link StatusBadgeProps}
- * @see {@link StatusBadge.stories.tsx}
- * @see {@link StatusBadge.test.tsx}
+ * @see [StatusBadge Stories](./StatusBadge.stories.tsx)
+ * @see [StatusBadge Tests](./StatusBadge.test.tsx)
  */
 export const StatusBadge = ({ status, showIcon }: StatusBadgeProps) => {
   return <span className={status}>{showIcon ? "●" : ""} {status}</span>;
@@ -34,7 +34,7 @@ const StatusContext = React.createContext<string>("active");
  *
  * @returns {string} The active status value.
  * @see {@link StatusContext}
- * @see {@link useStatusColor.test.ts}
+ * @see [useStatusColor Tests](./useStatusColor.test.ts)
  * @category Hooks
  */
 export const useStatusColor = () => useContext(StatusContext);
@@ -48,7 +48,7 @@ export const useStatusColor = () => useContext(StatusContext);
  * @property {string} status - The status value.
  * @property {number} updatedAt - Unix timestamp of last change.
  * @see {@link StatusPayload}
- * @see {@link statusSchema.test.ts}
+ * @see [statusSchema Tests](./statusSchema.test.ts)
  */
 export const statusSchema = z.object({
   status: z.enum(["active", "inactive", "pending"]),

@@ -5,9 +5,9 @@ Load `agentic-jsdoc`, then ask: **"Review the JSDoc in tests/test_fixture_tags.t
 ## Should Flag (5 violations)
 
 1. **`fetchLegacyProfile` `@deprecated`** — Missing migration path; should state what to use instead (e.g., "Use `fetchProfile` instead.")
-2. **`parseConfig`** — Missing `@throws {SyntaxError}` (from `JSON.parse`) and `@throws {TypeError}` (from the explicit guard)
+2. **`parseConfig`** — Missing `@remarks` category; missing `@throws {SyntaxError}` (from `JSON.parse`) and `@throws {TypeError}` (from the explicit guard)
 3. **`mergeSources` `@param` / `@returns`** — Uses `{any}` and `{*}` types; should use `{unknown}` or a specific union type
-4. **`usePageView`** — Missing `@returns {void} Side-effects only.` for a hook that returns nothing
+4. **`usePageView`** — Missing `@remarks`, `@hook` tag, and `@returns {void} Side-effects only.` for a hook that returns nothing
 5. **`formatDate` `@example`** — Missing output comment (should have `// returns "Nov 14, 2023"` or similar)
 
 ## Should NOT Flag

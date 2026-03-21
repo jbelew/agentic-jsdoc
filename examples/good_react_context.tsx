@@ -15,6 +15,10 @@ interface ThemeContextValue {
 
 /**
  * Global context managing the application's visual theme.
+ * 
+ * @remarks
+ * Includes fallback logic for system preferences.
+ * 
  * @default { theme: "system", setTheme: () => {} }
  */
 export const ThemeContext = createContext<ThemeContextValue>({
@@ -25,10 +29,12 @@ export const ThemeContext = createContext<ThemeContextValue>({
 /**
  * Custom hook to consume the current application theme.
  * 
- * Must be used within a component wrapped by `<ThemeProvider>`.
+ * @remarks
+ * Must be used within a component wrapped by `ThemeProvider`.
  * 
  * @returns {ThemeContextValue} The current theme state and mutation actions.
  * @see {@link ThemeContext}
+ * @hook
  * @category Hooks
  * 
  * @example

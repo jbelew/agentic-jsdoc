@@ -7,12 +7,14 @@ import { useParams } from "react-router-dom";
 /**
  * A highly dynamic route component that fetches and displays user details.
  * 
+ * @remarks
  * Inherits standard routing layout but relies entirely on React Router URL
  * parameters rather than direct component props.
  * 
  * @param {string} [URL/userId] - The UUID of the user to fetch, extracted via `useParams()`.
  * @returns {JSX.Element} The rendered user profile page.
  * @see {@link useUserProfileFetcher}
+ * @component
  * @category Components
  * 
  * @example
