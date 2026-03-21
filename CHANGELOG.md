@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.8.0...agentic-jsdoc-v1.9.0) (2026-03-21)
+
+
+### Features
+
+* Add new test fixtures for JSDoc tag validation and JSDoc generation, and update README documentation. ([39fdc57](https://github.com/jbelew/agentic-jsdoc/commit/39fdc579703832ede01880c0f38b9703a7b094e1))
+
 ## [1.8.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.7.2...agentic-jsdoc-v1.8.0) (2026-03-21)
 
 
