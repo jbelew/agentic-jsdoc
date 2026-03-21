@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.10.0...agentic-jsdoc-v1.11.0) (2026-03-21)
+
+
+### Features
+
+* Enhance JSDoc documentation with `[@remarks](https://github.com/remarks)`, `[@component](https://github.com/component)`, `[@hook](https://github.com/hook)` tags, and standardize `[@see](https://github.com/see)` links to use the `{[@link](https://github.com/link) RelativePath Label}` format. ([e6db381](https://github.com/jbelew/agentic-jsdoc/commit/e6db381c187bd978cb89966d8a3b35e1c9bc9fcc))
+
 ## [1.10.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.9.0...agentic-jsdoc-v1.10.0) (2026-03-21)
 
 
