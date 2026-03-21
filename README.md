@@ -69,7 +69,7 @@ Because this standard forces heavy adherence to rich metadata tags and explicit 
 
 ```bash
 npm install -D typedoc
-npx typedoc --entryPoints src/index.ts --out docs
+npx typedoc --entryPointStrategy expand --entryPoints src/ --exclude "**/*.test.*" --exclude "**/*.stories.*" --out docs/api --tsconfig tsconfig.json
 ```
 
 ## Examples Directory
