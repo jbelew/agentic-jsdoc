@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.0...agentic-jsdoc-v1.5.1) (2026-03-21)
+
+
+### Bug Fixes
+
+* Update ESLint configuration example in README to use ES module syntax and correct a markdown link in the changelog. ([dd8c6e5](https://github.com/jbelew/agentic-jsdoc/commit/dd8c6e575b9c933274d8ec3462ff1bc796d40b4b))
+
 ## [1.5.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.4.0...agentic-jsdoc-v1.5.0) (2026-03-21)
 
 
