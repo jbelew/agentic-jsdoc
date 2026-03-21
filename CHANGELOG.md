@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.7.2...agentic-jsdoc-v1.8.0) (2026-03-21)
+
+
+### Features
+
+* added a basic testing fixture. ([83ce21c](https://github.com/jbelew/agentic-jsdoc/commit/83ce21cffe0d89c5d0499b2eb2f7b19cd3ae729d))
+
 ## [1.7.2](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.7.1...agentic-jsdoc-v1.7.2) (2026-03-21)
 
 
