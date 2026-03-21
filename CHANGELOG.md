@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/jbelew/agentic-jsdoc/compare/v1.1.0...v1.2.0) (2026-03-21)
+
+
+### Features
+
+* Add agent skill manifest and configure release automation for version management. ([b959bd3](https://github.com/jbelew/agentic-jsdoc/commit/b959bd3d805428ce54c47362c2191d4429725c4c))
+
 ## [1.1.0](https://github.com/jbelew/agentic-jsdoc/compare/v1.0.1...v1.1.0) (2026-03-21)
 
 
