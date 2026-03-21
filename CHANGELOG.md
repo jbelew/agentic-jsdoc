@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.6.0...agentic-jsdoc-v1.6.1) (2026-03-21)
+
+
+### Bug Fixes
+
+* One final semver test. ([255464c](https://github.com/jbelew/agentic-jsdoc/commit/255464c8bfeb98121b0724afa42b52fba154e8c3))
+
 ## [1.6.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.1...agentic-jsdoc-v1.6.0) (2026-03-21)
 
 * This version contains no new changes from 1.5.1, but was released to stabilize the versioning pipeline and ensure consistent tagging.
