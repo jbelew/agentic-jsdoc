@@ -1,4 +1,4 @@
-# JSDoc LLM Parsing Standard
+# Agentic JSDoc: Enhanced JSDoc Patterns for LLM Workflows
 
 An Agent Skill designed to maximize Large Language Model (LLM) comprehension for code generation, documentation, and RAG (Retrieval-Augmented Generation) retrieval.
 

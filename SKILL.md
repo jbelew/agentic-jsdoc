@@ -4,7 +4,7 @@ description: "Writes and reviews JSDoc optimized for LLM parsing in React/TypeSc
 license: AGPL-3.0-only
 ---
 
-# JSDoc Standards for LLM Parsing
+# Agentic JSDoc Patterns
 
 Enforce JSDoc conventions that maximize LLM comprehension for code generation, documentation, and RAG retrieval.
 
