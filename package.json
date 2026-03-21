@@ -2,8 +2,8 @@
   "name": "agentic-jsdoc",
   "version": "1.0.0",
   "description": "Writes and reviews JSDoc optimized for LLM parsing, maximizing agentic RAG retrieval and architecture comprehension.",
-  "author": "Your Name",
-  "license": "MIT",
+  "author": "John Belew",
+  "license": "GPLv3",
   "repository": {
     "type": "git",
     "url": "https://github.com/jbelew/agentic-jsdoc.git"
