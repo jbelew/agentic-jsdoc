@@ -5,7 +5,7 @@
 
 ### Features
 
-* Introduce detailed React JSDoc patterns, new good and bad examples, and the `[@category](https://github.com/category)` tag for LLM-optimized documentation. ([680009d](https://github.com/jbelew/agentic-jsdoc/commit/680009d80167ea0b015d41365c76af2a733fbdaa))
+* Introduce detailed React JSDoc patterns, new good and bad examples, and the `[@category]` tag for LLM-optimized documentation. ([680009d](https://github.com/jbelew/agentic-jsdoc/commit/680009d80167ea0b015d41365c76af2a733fbdaa))
 
 ## [1.4.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.3.0...agentic-jsdoc-v1.4.0) (2026-03-21)
 

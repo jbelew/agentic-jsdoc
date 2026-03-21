@@ -25,23 +25,34 @@ Your agent will automatically read `SKILL.md` when reviewing or writing document
 
 To ensure your team naturally adheres to this standard before an LLM even touches the codebase, use these strict `eslint-plugin-jsdoc` rules.
 
-Add this to your ESLint configuration (`.eslintrc.js`):
+Add this to your ESLint configuration (`eslint.config.js`):
 
 ```javascript
-module.exports = {
-  plugins: ["jsdoc"],
-  rules: {
-    // Force JSDoc on functions, classes, and crucially: TypeScript Interfaces (for React Props)
-    "jsdoc/require-jsdoc": ["warn", { 
+import jsdoc from "eslint-plugin-jsdoc";
+import { defineConfig } from "eslint/config";
+
+export default defineConfig([
+  {
+    files: ["**/*.{js,ts,tsx}"],
+    plugins: { jsdoc },
+    settings: {
+      jsdoc: {
+        mode: "typescript",
+      },
+    },
+    rules: {
+      // Force JSDoc on functions, classes, and crucially: TypeScript Interfaces (for React Props)
+      "jsdoc/require-jsdoc": ["warn", {
         require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true },
-        contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration"]
-    }],
-    "jsdoc/require-param-description": "error",
-    "jsdoc/require-returns-description": "error",
-    "jsdoc/require-example": "warn",
-    "jsdoc/check-tag-names": ["error", { definedTags: ["template", "category"] }]
-  }
-};
+        contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration"],
+      }],
+      "jsdoc/require-param-description": "error",
+      "jsdoc/require-returns-description": "error",
+      "jsdoc/require-example": "warn",
+      "jsdoc/check-tag-names": "error",
+    },
+  },
+]);
 ```
 
 ## Strict TypeDoc Generation
