@@ -3,10 +3,6 @@
 
 /**
  * Shape of the result returned by `parseCSVRow`.
- *
- * @typedef {Object} ParsedRow
- * @property {string[]} columns - The ordered column values extracted from the row.
- * @property {number} index - The zero-based row index in the source file.
  */
 interface ParsedRow {
   /** The ordered column values extracted from the row. */

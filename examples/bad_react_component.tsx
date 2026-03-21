@@ -12,6 +12,8 @@ export interface ButtonProps {
  * 
  * @param props 
  * @returns 
+ * @see {@link MyButton.stories.tsx}
+ * @see {@link MyButton.test.tsx}
  */
 export const MyButton = ({ label, onClick, isDisabled }: ButtonProps) => {
   return (

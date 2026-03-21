@@ -21,7 +21,7 @@ Apply these rules to every exported function, class, method, React component, cu
 
 ### 0. Research Context
 
-Before writing JSDoc, proactively search for associated files that should be linked via `@see {@link ...}`:
+Before writing JSDoc, proactively search for associated files that should be linked via `@see`:
 - Search for `.test.ts/tsx` files (e.g. `MyComponent.test.tsx`).
 - Search for `.stories.tsx` files (e.g. `MyComponent.stories.tsx`).
 - Search for associated Zod/Yup schemas or Context providers.
@@ -29,7 +29,7 @@ Before writing JSDoc, proactively search for associated files that should be lin
 ### 1. Use TypeScript-Compatible JSDoc Syntax
 
 - Use `@type`, `@typedef`, and `@param {type}` strictly.
-- Define complex object shapes with `@typedef {Object}` so LLMs know explicit data structures, or document the TypeScript `interface`/`type` directly.
+- Define complex object shapes with `@typedef {Object}` in plain JS files, or document the TypeScript `interface`/`type` directly in `.ts`/`.tsx` files. Do not use both — prefer the native TypeScript type when available.
 - Prefer union types (`{string|null}`) over vague types (`{*}`, `{any}`).
 - Use `@template` for generic type parameters to maintain strong typing awareness.
 
@@ -57,7 +57,7 @@ Every JSDoc block must follow this order:
 - **`@returns`**: Be explicit about the return shape. For Promises, specify the resolved type: `{Promise<User[]>}`. For custom hooks returning `void`, explicitly state `@returns {void} Side-effects only.`
 - **`@throws`**: Document every thrown error. This directly improves LLM-generated error handling.
 - **`@deprecated`**: Never just use `@deprecated`. Always follow with "Use `OtherFunction` instead."
-- **`@see`**: Aggressively use `@see` to link dependencies. Always wrap references in `{@link ...}` so TypeDoc renders clickable hyperlinks (e.g., `@see {@link MyContext}`). A Context hook should `@see {@link MyContext}`, and an API fetcher should `@see {@link handleApiError}`.
+- **`@see`**: Aggressively use `@see` to link dependencies. For **code symbols** (functions, types, contexts), use `{@link ...}` so TypeDoc renders clickable hyperlinks (e.g., `@see {@link MyContext}`). For **file references** (stories, tests, schemas), use Markdown-style links (e.g., `@see [MyComponent Stories](./MyComponent.stories.tsx)`). A Context hook should `@see {@link MyContext}`, and a component should `@see [MyComponent Tests](./MyComponent.test.tsx)`.
 - **`@example`**: Required for any non-trivial function. Must include expected output as comments (e.g., `// returns "value"` or `// mounts Component`).
 
 ### 4. Special Contexts: Architecture Primitives
@@ -87,7 +87,7 @@ Check every JSDoc block against these criteria:
 6. **`@returns` is explicit?** — Especially for Promises, custom hooks, and complex objects. Side-effect hooks must say `{void}`.
 7. **`@throws` documented?** — Any function that can throw must document it. Ensure `<Suspense>` paths are caught.
 8. **Deprecations are actionable?** — Check if `@deprecated` explains the migration path.
-9. **RAG Linkage?** — Are tests, schemas, and contexts linked using `@see {@link ...}`? Plain `@see` without `{@link}` renders as text, not a hyperlink.
+9. **RAG Linkage?** — Are code symbols linked with `@see {@link ...}`? Are file references (stories, tests, schemas) linked with Markdown-style `@see [Label](./path)`?
 10. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
 
 Flag violations and provide corrected JSDoc inline. Reference files in `examples/` for canonical patterns when suggesting fixes.

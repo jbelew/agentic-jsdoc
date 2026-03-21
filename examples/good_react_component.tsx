@@ -21,8 +21,8 @@ export interface ButtonProps {
  * 
  * @param {ButtonProps} props - The component properties.
  * @returns {JSX.Element} The rendered button UI.
- * @see {@link PrimaryButton.stories.tsx}
- * @see {@link PrimaryButton.test.tsx}
+ * @see [PrimaryButton Stories](./PrimaryButton.stories.tsx)
+ * @see [PrimaryButton Tests](./PrimaryButton.test.tsx)
  * @category Components
  * 
  * @example
