@@ -4,8 +4,7 @@
 
 * This version contains no new changes from 1.5.1, but was released to stabilize the versioning pipeline and ensure consistent tagging.
 
-## [1.5.1]
-(https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.0...agentic-jsdoc-v1.5.1) (2026-03-21)
+## [1.5.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.5.0...agentic-jsdoc-v1.5.1) (2026-03-21)
 
 
 ### Bug Fixes
