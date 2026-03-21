@@ -50,7 +50,7 @@ Every JSDoc block must follow this order:
 - **`@returns`**: Be explicit about the return shape. For Promises, specify the resolved type: `{Promise<User[]>}`. For custom hooks returning `void`, explicitly state `@returns {void} Side-effects only.`
 - **`@throws`**: Document every thrown error. This directly improves LLM-generated error handling.
 - **`@deprecated`**: Never just use `@deprecated`. Always follow with "Use `OtherFunction` instead."
-- **`@see`**: Aggressively use `@see` to link dependencies. E.g., a Context hook should `@see MyContext`, and an API fetcher should `@see` standard error handlers it triggers.
+- **`@see`**: Aggressively use `@see` to link dependencies. Always wrap references in `{@link ...}` so TypeDoc renders clickable hyperlinks (e.g., `@see {@link MyContext}`). A Context hook should `@see {@link MyContext}`, and an API fetcher should `@see {@link handleApiError}`.
 - **`@example`**: Required for any non-trivial function. Must include expected output as comments (e.g., `// returns "value"` or `// mounts Component`).
 
 ### 4. Special Contexts: Architecture Primitives
@@ -80,7 +80,7 @@ Check every JSDoc block against these criteria:
 6. **`@returns` is explicit?** — Especially for Promises, custom hooks, and complex objects. Side-effect hooks must say `{void}`.
 7. **`@throws` documented?** — Any function that can throw must document it. Ensure `<Suspense>` paths are caught.
 8. **Deprecations are actionable?** — Check if `@deprecated` explains the migration path.
-9. **RAG Linkage?** — Are tests, schemas, and contexts explicitly linked using `@see`?
+9. **RAG Linkage?** — Are tests, schemas, and contexts linked using `@see {@link ...}`? Plain `@see` without `{@link}` renders as text, not a hyperlink.
 10. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
 
 Flag violations and provide corrected JSDoc inline. Reference files in `examples/` for canonical patterns when suggesting fixes.

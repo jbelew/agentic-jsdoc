@@ -24,7 +24,7 @@ interface SessionState {
  * the secure session lifecycle.
  * 
  * @returns {import("zustand").UseBoundStore<import("zustand").StoreApi<SessionState>>} The initialized Zustand hook.
- * @see SessionState
+ * @see {@link SessionState}
  * @category Hooks
  * 
  * @example

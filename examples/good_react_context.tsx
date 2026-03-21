@@ -28,7 +28,7 @@ export const ThemeContext = createContext<ThemeContextValue>({
  * Must be used within a component wrapped by `<ThemeProvider>`.
  * 
  * @returns {ThemeContextValue} The current theme state and mutation actions.
- * @see ThemeContext
+ * @see {@link ThemeContext}
  * @category Hooks
  * 
  * @example

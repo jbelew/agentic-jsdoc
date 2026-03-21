@@ -27,7 +27,7 @@ interface ParsedRow {
  * @param {number} index - The zero-based position of this row in the file.
  * @returns {ParsedRow} The parsed column values and their source index.
  * @throws {SyntaxError} Throws if the row contains an unterminated quoted field.
- * @see validateCSVHeaders
+ * @see {@link validateCSVHeaders}
  * @category Utilities
  *
  * @example

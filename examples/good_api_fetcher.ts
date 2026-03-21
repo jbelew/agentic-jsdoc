@@ -14,7 +14,7 @@ import { useSessionStore } from "./store";
  * @param {RequestInit} [options] - Additional fetch initialization options.
  * @returns {Promise<T>} Resolves immediately with parsed type `T`.
  * @throws {Error} Throws if the network fails or if the API returns 401/500 errors.
- * @see useSessionStore
+ * @see {@link useSessionStore}
  * @category Utilities
  * 
  * @example

@@ -7,7 +7,7 @@ import { z } from "zod";
  * Runtime validation schema for user payload creation.
  * 
  * Fails safely if the email is malformed or if the user is underage.
- * @see CreateUserPayload
+ * @see {@link CreateUserPayload}
  */
 export const CreateUserSchema = z.object({
   /** The validated user email format. */
@@ -20,6 +20,6 @@ export const CreateUserSchema = z.object({
  * Compile-time representation of the `CreateUserSchema`.
  * 
  * Any structural changes to this interface MUST also be reflected in the Zod schema.
- * @see CreateUserSchema
+ * @see {@link CreateUserSchema}
  */
 export type CreateUserPayload = z.infer<typeof CreateUserSchema>;
