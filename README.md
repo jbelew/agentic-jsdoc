@@ -54,15 +54,15 @@ export default defineConfig([
         require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true },
         contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration", "ExportNamedDeclaration > VariableDeclaration", "Program > VariableDeclaration"],
       }],
-      "jsdoc/require-param-description": "error",
-      "jsdoc/require-returns-description": "error",
+      "jsdoc/require-param-description": "warn",
+      "jsdoc/require-returns-description": "warn",
       "jsdoc/require-example": "warn",
-      "jsdoc/require-description": "error",
-      "jsdoc/check-tag-names": ["error", {
-        "definedTags": ["hook", "component", "remarks"]
+      "jsdoc/require-description": "warn",
+      "jsdoc/check-tag-names": ["warn", {
+        "definedTags": ["hook", "component", "remarks", "performance", "accessibility", "security"]
       }],
       // Enforce {@link} instead of Markdown links for cross-references
-      "jsdoc/no-undefined-types": ["error", { "definedTypes": ["JSX"] }],
+      "jsdoc/no-undefined-types": ["warn", { "definedTypes": ["JSX"] }],
     },
   },
 ]);
