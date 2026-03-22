@@ -60,8 +60,8 @@ Every JSDoc block must follow this order:
 - **`@throws`**: Document every thrown error. This directly improves LLM-generated error handling.
 - **`@deprecated`**: Never just use `@deprecated`. Always follow with "Use `OtherFunction` instead."
 - **`@default`**: Use on React contexts, config objects, and optional parameters to document the initial or fallback value (e.g., `@default { theme: "system" }`).
-- **`@see`**: Aggressively use `@see` to link dependencies. Always use the JSDoc `{@link ...}` syntax for both **code symbols** (e.g., `@see {@link MyContext}`) and **file references** (e.g., `@see {@link ./MyComponent.test.tsx Unit Tests}`). Avoid raw Markdown links `[Label](./path)` as they are less robust for TypeDoc and IDE integration.
-- **`@example`**: Required for any non-trivial function. Must include expected output as comments (e.g., `// returns "value"` or `// mounts Component`).
+- **`@see`**: Aggressively use `@see` to link dependencies. Use **TypeDoc symbol references** for all code symbols — e.g., `@see {@link MyContext}`, `@see {@link useAuth}`, `@see {@link UserSchema}`. **Never** use file-path `{@link ./path}` syntax for code symbols; always reference the exported symbol name directly. File-path `{@link}` syntax is **only** permitted for test and story files that have no exported symbol to reference — e.g., `@see {@link ./MyComponent.test.tsx Unit Tests}`, `@see {@link ./MyComponent.stories.tsx Storybook}`. Avoid raw Markdown links `[Label](./path)` entirely.
+- **`@example`**: Required for any non-trivial function. Wrap code in a fenced code block **with** a language identifier (e.g., ` ```tsx ` or ` ```ts `) for TypeDoc syntax highlighting. Must include expected output as comments (e.g., `// returns "value"` or `// mounts Component`).
 
 ### 4. Special Contexts: Architecture Primitives
 
@@ -93,7 +93,7 @@ Check every JSDoc block against these criteria:
 7. **`@throws` documented?** — Any function that can throw must document it. Ensure `<Suspense>` paths are caught.
 8. **Deprecations are actionable?** — Check if `@deprecated` explains the migration path.
 9. **Defaults documented?** — Do React contexts, config objects, and optional params use `@default` to document initial values?
-10. **RAG Linkage?** — Are all references linked using `{@link path/or/symbol Label}`? Markdown-style `@see [Label](./path)` is a violation.
+10. **RAG Linkage?** — Are all `@see` tags using TypeDoc symbol references (`{@link SymbolName}`) for code? File-path `{@link ./path}` is **only** valid for `.test.*` and `.stories.*` files. Markdown-style `@see [Label](./path)` is always a violation.
 11. **`@example` included?** — Required for exported/public functions. Must explicitly trace output via `// returns X`.
 
 Flag violations and provide corrected JSDoc inline. Reference files in `examples/` for canonical patterns when suggesting fixes.

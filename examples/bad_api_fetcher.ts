@@ -5,6 +5,7 @@ import { useSessionStore } from "./store";
 
 /**
  * Fetches data.
+ * @see {@link ./store.ts useSessionStore}
  */
 export async function fetchSecure(url: string, options?: RequestInit) {
   const token = useSessionStore.getState().token;
