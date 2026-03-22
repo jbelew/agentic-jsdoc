@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.11.0...agentic-jsdoc-v1.12.0) (2026-03-22)
+
+
+### Features
+
+* enforce JSDoc on exported variable declarations and clarify requirements for internal local variables. ([0b62cde](https://github.com/jbelew/agentic-jsdoc/commit/0b62cde05eb56ec04428919803702d6961f8c465))
+
 ## [1.11.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.10.0...agentic-jsdoc-v1.11.0) (2026-03-21)
 
 
