@@ -17,7 +17,7 @@ Provide JSDoc conventions that improve LLM comprehension for code generation, do
 
 ## When Writing Code
 
-Apply these rules to every exported function, class, method, React component, custom hook, and type:
+Apply these rules to every exported function, class, method, React component, custom hook, and type. **Internal local variables within functions do not require JSDoc unless they are exceptionally complex.**
 
 ### 0. Research Context
 
@@ -79,6 +79,8 @@ To natively support enterprise documentation pipelines (like TypeDoc or JSDoc-to
 - Use `@category Hooks`, `@category Components`, or `@category Utilities` prominently on public exports to group outputs visually.
 
 ## When Reviewing Code
+
+Check every **exported or top-level** JSDoc block against these criteria. Internal local variables are generally exempt from strict JSDoc requirements to keep code concise.
 
 Check every JSDoc block against these criteria:
 

@@ -49,10 +49,10 @@ export default defineConfig([
       },
     },
     rules: {
-      // Force JSDoc on functions, classes, and crucially: TypeScript Interfaces (for React Props)
+      // Force JSDoc on functions, classes, and crucially: React components/hooks (VariableDeclarations)
       "jsdoc/require-jsdoc": ["warn", {
         require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true },
-        contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration"],
+        contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration", "ExportNamedDeclaration > VariableDeclaration", "Program > VariableDeclaration"],
       }],
       "jsdoc/require-param-description": "error",
       "jsdoc/require-returns-description": "error",
@@ -61,6 +61,8 @@ export default defineConfig([
       "jsdoc/check-tag-names": ["error", {
         "definedTags": ["hook", "component", "remarks"]
       }],
+      // Enforce {@link} instead of Markdown links for cross-references
+      "jsdoc/no-undefined-types": ["error", { "definedTypes": ["JSX"] }],
     },
   },
 ]);
