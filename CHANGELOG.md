@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.12.0...agentic-jsdoc-v1.12.1) (2026-03-22)
+
+
+### Bug Fixes
+
+* Refine JSDoc `[@see](https://github.com/see)` guidelines to prioritize TypeDoc symbol references for code and require language-specific fenced code blocks for `[@example](https://github.com/example)` tags, while adding `[@see](https://github.com/see)` links to example files. ([fc46991](https://github.com/jbelew/agentic-jsdoc/commit/fc4699136b65740869c7c663c551e6b727a72e3c))
+
 ## [1.12.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.11.0...agentic-jsdoc-v1.12.0) (2026-03-22)
 
 
