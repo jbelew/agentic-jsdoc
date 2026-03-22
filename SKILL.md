@@ -6,7 +6,7 @@ license: AGPL-3.0-only
 
 # Agentic JSDoc Patterns
 
-Enforce JSDoc conventions that maximize LLM comprehension for code generation, documentation, and RAG retrieval.
+Provide JSDoc conventions that improve LLM comprehension for code generation, documentation, and RAG retrieval.
 
 ## Core Principles
 

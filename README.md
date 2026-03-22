@@ -1,16 +1,16 @@
 # Agentic JSDoc: Enhanced JSDoc Patterns for LLM Workflows
 
-An Agent Skill designed to maximize Large Language Model (LLM) comprehension for code generation, documentation, and RAG (Retrieval-Augmented Generation) retrieval.
+An Agent Skill providing a set of JSDoc patterns designed to improve Large Language Model (LLM) comprehension for code generation, documentation, and RAG (Retrieval-Augmented Generation) retrieval.
 
-When an LLM agent creates or reads code without an enforced standard, it misses critical architecture links and struggles with React edge cases. This skill explicitly guides the agent to document React context hooks, Zustand stores, Suspense boundaries, and explicit routing.
+When an LLM agent creates or reads code without a clear convention, it often misses critical architecture links and struggles with React edge cases. This skill guides the agent to document React context hooks, Zustand stores, Suspense boundaries, and explicit routing.
 
-## The Standard ([SKILL.md](./SKILL.md))
+## The Patterns ([SKILL.md](./SKILL.md))
 
-The core of this project is [SKILL.md](./SKILL.md). It serves as the **source of truth** for your AI agent to understand:
-- **Priority Tags**: Strict usage of `@param`, `@returns`, `@throws`, `@category`, `@example`, and the now-standardized `{@link path/to/file Label}` for RAG clarity.
-- **Hierarchical Structure**: A deterministic block order (Summary → `@remarks` → Tags → Example) to ensure consistent LLM parsing and TypeDoc compatibility.
+The core of this project is [SKILL.md](./SKILL.md). It provides a set of patterns for your AI agent to follow:
+- **Priority Tags**: Recommended usage of `@param`, `@returns`, `@throws`, `@category`, `@example`, and `{@link path/to/file Label}` for RAG clarity.
+- **Hierarchical Structure**: A deterministic block order (Summary → `@remarks` → Tags → Example) to improve LLM parsing and TypeDoc compatibility.
 - **Architecture Primitives**: Specialized JSDoc patterns for React Components, Custom Hooks, Zustand Stores, and Zod Schemas.
-- **Review Criteria**: A built-in checklist for agents to audit and refactor existing documentation.
+- **Review Criteria**: A built-in guide for agents to audit and refactor existing documentation.
 
 Your agent will automatically ingest `SKILL.md` when installed as a skill, providing persistent grounding for all documentation tasks.
 
@@ -31,7 +31,7 @@ git clone https://github.com/jbelew/agentic-jsdoc.git .agents/skills/agentic-jsd
 
 ## Linting Enforcement
 
-To ensure your team naturally adheres to this standard before an LLM even touches the codebase, use these strict `eslint-plugin-jsdoc` rules.
+To help your team naturally adhere to these patterns before an LLM even touches the codebase, you can use these `eslint-plugin-jsdoc` rules.
 
 Add this to your ESLint configuration (`eslint.config.js`):
 
@@ -68,7 +68,7 @@ export default defineConfig([
 
 ## Strict TypeDoc Generation
 
-Because this standard forces heavy adherence to rich metadata tags and explicit linking, the codebase becomes fully compatible with automatic wiki generators natively. You can drop in `typedoc` and it will read these heavily structured comments flawlessly!
+Because these patterns encourage rich metadata tags and explicit linking, the codebase becomes fully compatible with automatic wiki generators natively. You can drop in `typedoc` and it will read these structured comments flawlessly!
 
 ```bash
 npm install -D typedoc
