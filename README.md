@@ -31,7 +31,7 @@ git clone https://github.com/jbelew/agentic-jsdoc.git .agents/skills/agentic-jsd
 
 ## Linting Enforcement
 
-To help your team naturally adhere to these patterns before an LLM even touches the codebase, you can use these `eslint-plugin-jsdoc` rules.
+To help your team naturally adhere to these patterns before an LLM even touches the codebase, you can use these recommended `eslint-plugin-jsdoc` rules.
 
 > [!IMPORTANT]
 > **Anti-Artifact Fix:** Always disable the JSDoc fixer by setting `fixer: { enable: false }`. If enabled, ESLint will insert empty `/** * */` blocks during `--fix` runs, which creates noise for LLMs and consumes unnecessary tokens. You want the linter to warn you about missing docs so you (or your agent) can write meaningful ones.
