@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.2](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.12.1...agentic-jsdoc-v1.12.2) (2026-04-07)
+
+
+### Bug Fixes
+
+* clarify that recommended rules are provided for eslint-plugin-jsdoc ([ee0f7a2](https://github.com/jbelew/agentic-jsdoc/commit/ee0f7a23fbd9b34edf22af713b1a4bd4e114d5f1))
+
 ## [1.12.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.12.0...agentic-jsdoc-v1.12.1) (2026-03-22)
 
 
