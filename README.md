@@ -33,6 +33,9 @@ git clone https://github.com/jbelew/agentic-jsdoc.git .agents/skills/agentic-jsd
 
 To help your team naturally adhere to these patterns before an LLM even touches the codebase, you can use these `eslint-plugin-jsdoc` rules.
 
+> [!IMPORTANT]
+> **Anti-Artifact Fix:** Always disable the JSDoc fixer by setting `fixer: { enable: false }`. If enabled, ESLint will insert empty `/** * */` blocks during `--fix` runs, which creates noise for LLMs and consumes unnecessary tokens. You want the linter to warn you about missing docs so you (or your agent) can write meaningful ones.
+
 Add this to your ESLint configuration (`eslint.config.js`):
 
 ```javascript
@@ -51,22 +54,54 @@ export default defineConfig([
     rules: {
       // Force JSDoc on functions, classes, and crucially: React components/hooks (VariableDeclarations)
       "jsdoc/require-jsdoc": ["warn", {
+        fixer: { enable: false }, // Prevent empty JSDoc artifacts
         require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true },
-        contexts: ["TSInterfaceDeclaration", "TSTypeAliasDeclaration", "ExportNamedDeclaration > VariableDeclaration", "Program > VariableDeclaration"],
+        contexts: [
+          "TSInterfaceDeclaration", 
+          "TSTypeAliasDeclaration", 
+          "ExportNamedDeclaration[declaration.type='VariableDeclaration']", 
+          "ExportDefaultDeclaration",
+          "Program > VariableDeclaration"
+        ],
       }],
       "jsdoc/require-param-description": "warn",
       "jsdoc/require-returns-description": "warn",
       "jsdoc/require-example": "warn",
       "jsdoc/require-description": "warn",
       "jsdoc/check-tag-names": ["warn", {
-        "definedTags": ["hook", "component", "remarks", "performance", "accessibility", "security"]
+        "definedTags": ["hook", "component", "remarks", "performance", "accessibility", "security", "category"]
+      }],
+      "jsdoc/sort-tags": ["warn", {
+        "tagSequence": [
+          { "tags": ["remarks"] },
+          { "tags": ["template"] },
+          { "tags": ["param"] },
+          { "tags": ["returns"] },
+          { "tags": ["throws"] },
+          { "tags": ["see"] },
+          { "tags": ["hook", "component"] },
+          { "tags": ["category"] },
+          { "tags": ["example"] }
+        ]
       }],
       // Enforce {@link} instead of Markdown links for cross-references
-      "jsdoc/no-undefined-types": ["warn", { "definedTypes": ["JSX"] }],
+      "jsdoc/no-undefined-types": ["warn", { "definedTypes": ["JSX", "React", "ReactNode", "Ref", "MutableRefObject", "RequestInit"] }],
     },
   },
 ]);
 ```
+
+### Tag Philosophy: Why this order?
+
+The hierarchical order in `jsdoc/sort-tags` is designed for **Agentic Retrieval**:
+
+*   **`@remarks` First**: Putting the "Why" before the "How" (params) helps agents understand architectural intent before getting bogged down in implementation details.
+*   **`@example` Last**: Keeping the example at the bottom provides a "clean exit" for RAG (Retrieval-Augmented Generation) systems, ensuring the code snippet is captured in its entirety without being interleaved with metadata.
+*   **Context Selectors**: Standard JSDoc linting often misses React components defined as arrow functions. The `ExportNamedDeclaration[declaration.type='VariableDeclaration']` selector ensures these critical UI primitives are always documented.
+
+## Lessons from the Field
+
+This project follows an "eat your own dog food" philosophy. During a large-scale migration of the [NMS Technology Optimizer](https://github.com/jbelew/nms_optimizer-web), we discovered that automated `--fix` runs were generating hundreds of empty JSDoc blocks. This led to the discovery of the `fixer: { enable: false }` requirement, which is now a foundational recommendation of this skill.
 
 ## Strict TypeDoc Generation
 
