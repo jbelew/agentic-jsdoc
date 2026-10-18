@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.13.0](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.12.1...agentic-jsdoc-v1.13.0) (2026-10-18)
+
+
+### Features
+
+* streamline skill specification and omit redundant TypeScript type annotations ([a6cb0e5](https://github.com/jbelew/agentic-jsdoc/commit/a6cb0e58288029c50212b76733427045824344f2))
+
+
+### Bug Fixes
+
+* clarify that recommended rules are provided for eslint-plugin-jsdoc ([ee0f7a2](https://github.com/jbelew/agentic-jsdoc/commit/ee0f7a23fbd9b34edf22af713b1a4bd4e114d5f1))
+
 ## [1.12.1](https://github.com/jbelew/agentic-jsdoc/compare/agentic-jsdoc-v1.12.0...agentic-jsdoc-v1.12.1) (2026-03-22)
 
 
