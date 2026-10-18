@@ -7,7 +7,7 @@ When an LLM agent creates or reads code without a clear convention, it often mis
 ## The Patterns ([SKILL.md](./SKILL.md))
 
 The core of this project is [SKILL.md](./SKILL.md). It provides a set of patterns for your AI agent to follow:
-- **Priority Tags**: Recommended usage of `@param`, `@returns`, `@throws`, `@category`, `@example`, and `{@link path/to/file Label}` for RAG clarity.
+- **Priority Tags**: Recommended usage of `@remarks`, `@param`, `@returns`, `@throws`, `@category`, `@example`, and `{@link SymbolName}` for RAG clarity.
 - **Hierarchical Structure**: A deterministic block order (Summary → `@remarks` → Tags → Example) to improve LLM parsing and TypeDoc compatibility.
 - **Architecture Primitives**: Specialized JSDoc patterns for React Components, Custom Hooks, Zustand Stores, and Zod Schemas.
 - **Review Criteria**: A built-in guide for agents to audit and refactor existing documentation.
@@ -44,7 +44,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    files: ["**/*.{js,ts,tsx}"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: { jsdoc },
     settings: {
       jsdoc: {
@@ -52,7 +52,7 @@ export default defineConfig([
       },
     },
     rules: {
-      // Force JSDoc on functions, classes, and crucially: React components/hooks (VariableDeclarations)
+      // Force JSDoc on functions, classes, interfaces, types, and top-level declarations
       "jsdoc/require-jsdoc": ["warn", {
         fixer: { enable: false }, // Prevent empty JSDoc artifacts
         require: { FunctionDeclaration: true, MethodDefinition: true, ClassDeclaration: true },
@@ -69,23 +69,42 @@ export default defineConfig([
       "jsdoc/require-example": "warn",
       "jsdoc/require-description": "warn",
       "jsdoc/check-tag-names": ["warn", {
-        "definedTags": ["hook", "component", "remarks", "performance", "accessibility", "security", "category"]
+        definedTags: ["hook", "component", "remarks", "performance", "accessibility", "security", "category"],
       }],
       "jsdoc/sort-tags": ["warn", {
-        "tagSequence": [
-          { "tags": ["remarks"] },
-          { "tags": ["template"] },
-          { "tags": ["param"] },
-          { "tags": ["returns"] },
-          { "tags": ["throws"] },
-          { "tags": ["see"] },
-          { "tags": ["hook", "component"] },
-          { "tags": ["category"] },
-          { "tags": ["example"] }
-        ]
+        tagSequence: [
+          { tags: ["remarks"] },
+          { tags: ["typedef"] },
+          { tags: ["template"] },
+          { tags: ["param"] },
+          { tags: ["returns"] },
+          { tags: ["throws"] },
+          { tags: ["deprecated"] },
+          { tags: ["default"] },
+          { tags: ["see"] },
+          { tags: ["hook", "component"] },
+          { tags: ["category"] },
+          { tags: ["example"] },
+        ],
       }],
-      // Enforce {@link} instead of Markdown links for cross-references
-      "jsdoc/no-undefined-types": ["warn", { "definedTypes": ["JSX", "React", "ReactNode", "Ref", "MutableRefObject", "RequestInit"] }],
+    },
+  },
+  {
+    // In TypeScript, rely on the AST for types and forbid redundant {type} annotations on @param/@returns
+    files: ["**/*.{ts,tsx}"],
+    plugins: { jsdoc },
+    rules: {
+      "jsdoc/no-types": "warn",
+    },
+  },
+  {
+    // In plain JavaScript, require explicit TypeScript-flavor {type} annotations
+    files: ["**/*.{js,jsx}"],
+    plugins: { jsdoc },
+    rules: {
+      "jsdoc/require-param-type": "warn",
+      "jsdoc/require-returns-type": "warn",
+      "jsdoc/no-undefined-types": "warn",
     },
   },
 ]);
@@ -126,7 +145,7 @@ The `tests/` directory contains a fixture for smoke-testing the skill after chan
 2. Ask: `Review the JSDoc in tests/test_fixture.tsx`
 3. Compare against `tests/test_fixture.expects.md`
 
-Covers `@see` consistency, proper use of `{@link}` vs Markdown links, `@typedef` redundancy, missing `@param`/`@returns` types, and the new `@remarks`, `@hook`, and `@component` requirements. Expects 8 violations flagged and 3 correct usages left alone.
+Covers `@see` consistency, proper use of `{@link}` vs Markdown links, `@typedef` redundancy, boilerplate component `@param`/`@returns` tags, and `@remarks`, `@hook`, and `@component` requirements. Expects 8 violations flagged and 3 correct usages left alone.
 
 ### Test 2: Tag-specific rules (review mode)
 
@@ -134,7 +153,7 @@ Covers `@see` consistency, proper use of `{@link}` vs Markdown links, `@typedef`
 2. Ask: `Review the JSDoc in tests/test_fixture_tags.tsx`
 3. Compare against `tests/test_fixture_tags.expects.md`
 
-Covers `@deprecated` without migration path, missing `@throws`, `{any}`/`{*}` types, void hooks without `@returns {void}`, and missing `@remarks` or `@hook` tags. Expects 5 violations flagged.
+Covers `@deprecated` without migration path, missing `@throws`, redundant/vague `{any}`/`{*}` types, void hooks without `@returns Side-effects only.`, and missing `@remarks` or `@hook` tags. Expects 5 violations flagged.
 
 ### Test 3: Writing JSDoc from scratch (write mode)
 
